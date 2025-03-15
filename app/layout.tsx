@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
+import Image from "next/image";
+import LogoChurch from "./LogoChurch.png";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +30,44 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <>
+          <nav className="fixed top-0 left-0 w-full p-2 shadow-lg bg-amber-800 text-xl">
+            <div className="container flex ">
+              <Link href={"/"}>
+                <Image src={LogoChurch} width={100} height={100} alt="logo" />
+              </Link>
+              <ul className="flex items-center space-x-4 text-white w-full justify-around">
+                <li className="hover:bg-amber-500">
+                  <Link href="/">Ogłoszenia</Link>
+                </li>
+                <li className="hover:bg-amber-500">
+                  <Link href="/">Intencje</Link>
+                </li>
+                <li className="hover:bg-amber-500">
+                  <Link href="/">O Parafii</Link>
+                </li>
+                <li className="hover:bg-amber-500">
+                  <Link href="/">Grupy parafialne</Link>
+                </li>
+                <li className="hover:bg-amber-500">
+                  <Link href="/">Galeria</Link>
+                </li>
+                <li className="hover:bg-amber-500">
+                  <Link href="/">Inne</Link>
+                </li>
+                <li className="hover:bg-amber-500">
+                  <Link href="/">Facebook</Link>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+            {children}
+            <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
+              Copyright © Parafia pw. bl. Honorata {new Date().getFullYear()}
+            </footer>
+          </div>
+        </>
       </body>
     </html>
   );
