@@ -4,7 +4,7 @@ import Image from "next/image";
 import LogoChurch from "../app/LogoChurch.png";
 import {List} from "lucide-react"
 import useMediaQuery from "@/utils/useMediaQuery";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle } from "./ui/sheet"; 
 import {  Select,
   SelectContent,
@@ -77,25 +77,36 @@ const Navbar = () => {
   ]
 
   const renderItem = (navbarItem: NavbarItem) => {
-    if (navbarItem.sublinks)
+    if (!!navbarItem.sublinks && !isMobile)
     return (
-      <Select>
+      <Select key={navbarItem.link}>
         <SelectTrigger>{navbarItem.title}</SelectTrigger>
-        <SelectContent>
-          {navbarItem.sublinks.map((sublink) => (
-            <SelectItem key={sublink.link} value={sublink.link}><Link className="hover:bg-amber-500 rounded-sm p-4" href={sublink.link}>{sublink.title}</Link></SelectItem>
-          ))}
+        <SelectContent  className="bg-amber-800 text-white">
+          <div key={"select-desktop"} className="flex flex-col text-lg">
+            {navbarItem.sublinks.map((sublink) => (
+              <Link key={sublink.link} className="rounded-sm p-4" href={sublink.link}>{sublink.title}</Link>
+            ))}
+          </div>
         </SelectContent>
       </Select>
     )
+    if (!!navbarItem.sublinks && isMobile)
     return (
-      <li  key={navbarItem.link}>
+      <React.Fragment key={navbarItem.link}>
+        {navbarItem.sublinks.map((sublink) => (
+          <Link key={sublink.link} className="rounded-sm" href={sublink.link}>{sublink.title}</Link>
+        ))}
+      </React.Fragment>
+
+    );
+    return (
+      <div  key={navbarItem.link}>
         { navbarItem.isExternal ?
-            <a className="hover:bg-amber-500 rounded-sm p-4" href={navbarItem.link} target="_blank" rel="noreferrer" key={navbarItem.link}>{navbarItem.title}</a> 
-            :
-            <Link className="hover:bg-amber-500 rounded-sm p-4" href={navbarItem.link}>{navbarItem.title}</Link>
+          <a className="hover:bg-amber-500 rounded-sm p-4" href={navbarItem.link} target="_blank" rel="noreferrer" key={navbarItem.link}>{navbarItem.title}</a> 
+          :
+          <Link className="hover:bg-amber-500 rounded-sm p-4" href={navbarItem.link}>{navbarItem.title}</Link>
         }
-      </li>
+      </div>
     )
   }
 
@@ -118,16 +129,16 @@ const Navbar = () => {
                 <SheetHeader className="pb-4">
                   <SheetTitle className="text-white">Linki</SheetTitle>
                 </SheetHeader>
-                <ul className="flex items-center flex-col space-x-4 text-white w-full justify-around text-xl gap-4">
+                <div key={"mobile-list"} className="flex items-center flex-col space-x-4 text-white w-full justify-around text-xl gap-4">
                   {itemList.map((item) => renderItem(item))}
-                </ul>
+                </div>
               </SheetContent>
             </Sheet>
             
           ) : (
-            <ul className="flex items-center space-x-4 text-white w-full justify-around">
+            <div key={"desktop-list"} className="flex items-center space-x-4 text-white w-full justify-around">
               {itemList.map((item) => renderItem(item))}
-            </ul>
+            </div>
           )}
         </div>
       </nav>
