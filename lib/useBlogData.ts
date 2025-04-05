@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import Config from "@/config";
 import parse from "html-react-parser"
+import { JSX } from "react";
 
 interface BlogPost {
   kind: string;
@@ -31,7 +32,7 @@ interface BlogPost {
 
 
 const useBlogData = (postId: string) => {
-  const { data, isLoading, error } = useQuery<BlogPost, Error>({
+  const { data, isLoading, error } = useQuery<JSX.Element | string | JSX.Element[], Error>({
     queryKey: [`blog-${postId}`],
     queryFn: () => queryFunction(postId),
     refetchOnWindowFocus: false,
@@ -52,16 +53,11 @@ const useBlogData = (postId: string) => {
         const jsonResponse = await response.json() as BlogPost;
         return parse(jsonResponse?.content || "")
       
-        return response.json();
       } catch (error) {
         return Promise.reject(error);
       }
   }
   
-
-
-
-
   return {
     blogData: data,
     blogLoading: isLoading,
