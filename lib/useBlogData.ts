@@ -40,7 +40,7 @@ const useBlogData = (postId: string) => {
 
   const queryFunction = async (postId: string) =>  {
     try {
-        const response = await fetch(`https://www.googleapis.com/blogger/v3/blogs/${Config.blogger.blogKey}/posts/${postId}?fetchBody=true&fetchImages=false&key=${Config.blogger.apiKey}`, {
+        const response = await fetch(`https://www.googleapis.com/blogger/v3/blogs/${Config.blogKey}/posts/${postId}?fetchBody=true&fetchImages=false&key=${Config.apiKey}`, {
           method: 'get',
           headers: new Headers({
             Accept: 'application/json',
