@@ -1,16 +1,23 @@
-"use client"
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import LogoChurch from "../app/LogoChurch.png";
-import {List} from "lucide-react"
+import { Menu, ChevronDown, ExternalLink } from "lucide-react";
 import useMediaQuery from "@/utils/useMediaQuery";
 import React from "react";
-import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle } from "./ui/sheet"; 
-import {  Select,
-  SelectContent,
-  SelectTrigger,
-} from "./ui/select"
-
+import {
+  Sheet,
+  SheetTrigger,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+} from "./ui/sheet";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
 
 interface NavbarItem {
   title: string;
@@ -24,123 +31,199 @@ const Navbar = () => {
 
   const itemList: NavbarItem[] = [
     {
-      title: 'Ogłoszenia',
-      link: '/ogloszenia'
+      title: "Ogłoszenia",
+      link: "/ogloszenia",
     },
     {
-      title: 'Intencje',
-      link: '/intencje'
+      title: "Intencje",
+      link: "/intencje",
     },
     {
-      title: 'O Parafii',
-      link: '/o-parafii'
+      title: "O Parafii",
+      link: "/o-parafii",
     },
     {
-      title: 'Grupy parafialne',
-      link: '/grupy',
+      title: "Grupy parafialne",
+      link: "/grupy",
       sublinks: [
         {
           title: "Koło Biblijne",
-          link: "/kolo-biblijne"
+          link: "/kolo-biblijne",
         },
         {
           title: "Żywy Różaniec",
-          link: "/zywy-rozaniec"
+          link: "/zywy-rozaniec",
         },
         {
           title: "Różaniec mężczyzn",
-          link: "/rozaniec-mezczyzn"
+          link: "/rozaniec-mezczyzn",
         },
         {
           title: "Salka parafialna",
-          link: "/salka-parafialna"
-        }
-      ]
+          link: "/salka-parafialna",
+        },
+      ],
     },
     {
-      title: 'Galeria',
-      link: 'https://drive.google.com/drive/folders/1s6g6oZ2K5BW_3otAI-SUd1wNBGV6xYgc?usp=sharing',
-      isExternal: true
+      title: "Galeria",
+      link: "https://drive.google.com/drive/folders/1s6g6oZ2K5BW_3otAI-SUd1wNBGV6xYgc?usp=sharing",
+      isExternal: true,
     },
     {
-      title: 'Przydatne linki',
-      link: '/linki'
+      title: "Przydatne linki",
+      link: "/linki",
     },
     {
-      title: 'Facebook',
-      link: 'https://www.facebook.com/ParafiaHonorata/',
-      isExternal: true
+      title: "Facebook",
+      link: "https://www.facebook.com/ParafiaHonorata/",
+      isExternal: true,
     },
-  ]
+  ];
 
-  const renderItem = (navbarItem: NavbarItem) => {
-    if (!!navbarItem.sublinks && !isMobile)
-    return (
-      <Select key={navbarItem.link}>
-        <SelectTrigger>{navbarItem.title}</SelectTrigger>
-        <SelectContent  className="bg-amber-800 text-white">
-          <div key={"select-desktop"} className="flex flex-col text-lg">
+  const renderDesktopItem = (navbarItem: NavbarItem) => {
+    if (navbarItem.sublinks) {
+      return (
+        <DropdownMenu key={navbarItem.link}>
+          <DropdownMenuTrigger className="flex items-center gap-1 px-3 py-2 rounded-md text-amber-50 hover:bg-amber-700/50 transition-colors duration-200 focus:outline-none">
+            {navbarItem.title}
+            <ChevronDown className="w-4 h-4" />
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="bg-amber-900 border-amber-700 min-w-[180px]">
             {navbarItem.sublinks.map((sublink) => (
-              <Link key={sublink.link} className="rounded-sm p-4" href={sublink.link}>{sublink.title}</Link>
+              <DropdownMenuItem key={sublink.link} asChild>
+                <Link
+                  href={sublink.link}
+                  className="text-amber-50 hover:bg-amber-700/50 cursor-pointer px-4 py-2"
+                >
+                  {sublink.title}
+                </Link>
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
+      );
+    }
+
+    if (navbarItem.isExternal) {
+      return (
+        <a
+          key={navbarItem.link}
+          href={navbarItem.link}
+          target="_blank"
+          rel="noreferrer"
+          className="flex items-center gap-1.5 px-3 py-2 rounded-md text-amber-50 hover:bg-amber-700/50 transition-colors duration-200"
+        >
+          {navbarItem.title}
+          <ExternalLink className="w-3.5 h-3.5 opacity-70" />
+        </a>
+      );
+    }
+
+    return (
+      <Link
+        key={navbarItem.link}
+        href={navbarItem.link}
+        className="px-3 py-2 rounded-md text-amber-50 hover:bg-amber-700/50 transition-colors duration-200"
+      >
+        {navbarItem.title}
+      </Link>
+    );
+  };
+
+  const renderMobileItem = (navbarItem: NavbarItem) => {
+    if (navbarItem.sublinks) {
+      return (
+        <div key={navbarItem.link} className="w-full">
+          <p className="text-amber-300 text-sm font-medium uppercase tracking-wide mb-2 mt-4">
+            {navbarItem.title}
+          </p>
+          <div className="flex flex-col gap-1 pl-2 border-l-2 border-amber-600">
+            {navbarItem.sublinks.map((sublink) => (
+              <Link
+                key={sublink.link}
+                href={sublink.link}
+                className="py-2 px-3 rounded-md text-amber-50 hover:bg-amber-700/50 transition-colors"
+              >
+                {sublink.title}
+              </Link>
             ))}
           </div>
-        </SelectContent>
-      </Select>
-    )
-    if (!!navbarItem.sublinks && isMobile)
-    return (
-      <React.Fragment key={navbarItem.link}>
-        {navbarItem.sublinks.map((sublink) => (
-          <Link key={sublink.link} className="rounded-sm" href={sublink.link}>{sublink.title}</Link>
-        ))}
-      </React.Fragment>
+        </div>
+      );
+    }
 
+    if (navbarItem.isExternal) {
+      return (
+        <a
+          key={navbarItem.link}
+          href={navbarItem.link}
+          target="_blank"
+          rel="noreferrer"
+          className="flex items-center justify-between py-3 px-3 rounded-md text-amber-50 hover:bg-amber-700/50 transition-colors"
+        >
+          {navbarItem.title}
+          <ExternalLink className="w-4 h-4 opacity-70" />
+        </a>
+      );
+    }
+
+    return (
+      <Link
+        key={navbarItem.link}
+        href={navbarItem.link}
+        className="py-3 px-3 rounded-md text-amber-50 hover:bg-amber-700/50 transition-colors"
+      >
+        {navbarItem.title}
+      </Link>
     );
-    return (
-      <div  key={navbarItem.link}>
-        { navbarItem.isExternal ?
-          <a className="hover:bg-amber-500 rounded-sm p-4" href={navbarItem.link} target="_blank" rel="noreferrer" key={navbarItem.link}>{navbarItem.title}</a> 
-          :
-          <Link className="hover:bg-amber-500 rounded-sm p-4" href={navbarItem.link}>{navbarItem.title}</Link>
-        }
-      </div>
-    )
-  }
+  };
 
-    return (
-      <nav className="font-serif fixed top-0 left-0 w-full p-2 shadow-lg bg-amber-800 text-xl">
-        <div className="container flex justify-between">
-          <Link href={"/"}>
+  return (
+    <nav className="font-serif fixed top-0 left-0 w-full z-50 bg-gradient-to-b from-amber-800 to-amber-900 shadow-lg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 lg:h-20">
+          {/* Logo */}
+          <Link href="/" className="flex-shrink-0 hover:opacity-90 transition-opacity">
             <Image
               src={LogoChurch}
-              width={100}
-              height={50}
-              alt="logo"
-              priority={true}
+              width={90}
+              height={45}
+              alt="Parafia bł. Honorata Koźmińskiego"
+              priority
+              className="h-12 lg:h-14 w-auto"
             />
           </Link>
-          {isMobile ? (
-            <Sheet >
-              <SheetTrigger><List size={70} color="white"/></SheetTrigger>
-              <SheetContent className="bg-amber-800">
-                <SheetHeader className="pb-4">
-                  <SheetTitle className="text-white">Linki</SheetTitle>
+
+          {/* Desktop Navigation */}
+          {!isMobile && (
+            <div className="flex items-center gap-1 text-base">
+              {itemList.map((item) => renderDesktopItem(item))}
+            </div>
+          )}
+
+          {/* Mobile Menu Button */}
+          {isMobile && (
+            <Sheet>
+              <SheetTrigger className="p-2 rounded-md text-amber-50 hover:bg-amber-700/50 transition-colors">
+                <Menu className="w-8 h-8" />
+                <span className="sr-only">Otwórz menu</span>
+              </SheetTrigger>
+              <SheetContent className="bg-gradient-to-b from-amber-800 to-amber-900 border-amber-700 w-[280px]">
+                <SheetHeader className="border-b border-amber-700 pb-4 mb-4">
+                  <SheetTitle className="text-amber-50 text-left">
+                    Menu
+                  </SheetTitle>
                 </SheetHeader>
-                <div key={"mobile-list"} className="flex items-center flex-col space-x-4 text-white w-full justify-around text-xl gap-4">
-                  {itemList.map((item) => renderItem(item))}
+                <div className="flex flex-col text-lg">
+                  {itemList.map((item) => renderMobileItem(item))}
                 </div>
               </SheetContent>
             </Sheet>
-            
-          ) : (
-            <div key={"desktop-list"} className="flex items-center space-x-4 text-white w-full justify-around">
-              {itemList.map((item) => renderItem(item))}
-            </div>
           )}
         </div>
-      </nav>
-    );
-
-}
+      </div>
+    </nav>
+  );
+};
 
 export default Navbar;
