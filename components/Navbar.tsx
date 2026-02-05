@@ -61,13 +61,13 @@ const Navbar = () => {
       ],
     },
     {
+      title: "Przydatne linki",
+      link: "/linki",
+    },
+    {
       title: "Galeria",
       link: "https://drive.google.com/drive/folders/1s6g6oZ2K5BW_3otAI-SUd1wNBGV6xYgc?usp=sharing",
       isExternal: true,
-    },
-    {
-      title: "Przydatne linki",
-      link: "/linki",
     },
     {
       title: "Facebook",
