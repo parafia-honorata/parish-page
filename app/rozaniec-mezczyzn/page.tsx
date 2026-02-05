@@ -1,21 +1,42 @@
 import Image from "next/image";
 
 export default function MenRosary() {
-    return (
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <h1 className="text-2xl font-bold">Różaniec mężczyzn</h1>
-        <article className="flex flex-col md:flex-row gap-6 items-center">
-          <Image
-            src="/images/rosarypic.jpg"
-            alt="Różaniec"
-            width={300}
-            height={400}
-            className="rounded-lg object-cover"
-          />
-          <div>
-            <p>Grupa różańcowa mężczyzn zaprasza do wspólnej modlitwy.</p>
+  return (
+    <main className="flex flex-col gap-8 md:gap-12">
+      <section className="bg-card rounded-xl border border-border p-6 sm:p-8 shadow-sm">
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 items-center lg:items-start">
+          <div className="w-full sm:w-auto flex-shrink-0">
+            <Image
+              src="/images/rosarypic.jpg"
+              alt="Różaniec"
+              width={320}
+              height={420}
+              className="rounded-lg object-cover w-full sm:w-[320px] h-auto shadow-md"
+            />
           </div>
-        </article>
-      </main>
-    );
-  }
+          <div className="flex-1">
+            <h1 className="text-2xl sm:text-3xl font-semibold text-foreground mb-4">
+              Różaniec mężczyzn
+            </h1>
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <p>
+                Grupa różańcowa mężczyzn zaprasza do wspólnej modlitwy. To
+                wyjątkowa inicjatywa, która gromadzi mężczyzn pragnących
+                pogłębiać swoją wiarę poprzez modlitwę różańcową.
+              </p>
+              <p>
+                Wspólna modlitwa różańcowa mężczyzn to czas duchowego
+                wyciszenia, refleksji nad tajemnicami życia Chrystusa i Maryi,
+                oraz budowania braterskiej wspólnoty.
+              </p>
+              <p>
+                Serdecznie zapraszamy wszystkich mężczyzn do dołączenia do
+                naszej grupy i wspólnego odkrywania głębi modlitwy różańcowej.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}

@@ -1,9 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import LogoChurch from "../app/LogoChurch.png";
 import { Menu, ChevronDown, ExternalLink } from "lucide-react";
-import useMediaQuery from "@/utils/useMediaQuery";
 import React from "react";
 import {
   Sheet,
@@ -27,8 +25,6 @@ interface NavbarItem {
 }
 
 const Navbar = () => {
-  const isMobile = useMediaQuery("(max-width: 1024px)");
-
   const itemList: NavbarItem[] = [
     {
       title: "Ogłoszenia",
@@ -185,24 +181,22 @@ const Navbar = () => {
           {/* Logo */}
           <Link href="/" className="flex-shrink-0 hover:opacity-90 transition-opacity">
             <Image
-              src={LogoChurch}
-              width={90}
-              height={45}
+              src="/images/LogoChurchLong.png"
+              width={200}
+              height={50}
               alt="Parafia bł. Honorata Koźmińskiego"
               priority
-              className="h-12 lg:h-14 w-auto"
+              className="h-10 lg:h-12 w-auto"
             />
           </Link>
 
-          {/* Desktop Navigation */}
-          {!isMobile && (
-            <div className="flex items-center gap-1 text-base">
-              {itemList.map((item) => renderDesktopItem(item))}
-            </div>
-          )}
+          {/* Desktop Navigation - hidden on mobile, shown on lg+ */}
+          <div className="hidden lg:flex items-center gap-1 text-base">
+            {itemList.map((item) => renderDesktopItem(item))}
+          </div>
 
-          {/* Mobile Menu Button */}
-          {isMobile && (
+          {/* Mobile Menu Button - shown on mobile, hidden on lg+ */}
+          <div className="lg:hidden">
             <Sheet>
               <SheetTrigger className="p-2 rounded-md text-amber-50 hover:bg-amber-700/50 transition-colors">
                 <Menu className="w-8 h-8" />
@@ -219,7 +213,7 @@ const Navbar = () => {
                 </div>
               </SheetContent>
             </Sheet>
-          )}
+          </div>
         </div>
       </div>
     </nav>

@@ -26,7 +26,7 @@ export default function HeroGallery() {
       {/* Hero Section with Church Image */}
       <section className="relative rounded-xl overflow-hidden shadow-lg -mt-4 sm:-mt-8">
         {/* Background Image */}
-        <div className="relative h-[320px] sm:h-[400px] lg:h-[480px]">
+        <div className="relative h-[350px] sm:h-[420px] lg:h-[500px]">
           {images.map((src, index) => (
             <Image
               key={src}
@@ -40,22 +40,31 @@ export default function HeroGallery() {
             />
           ))}
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
         </div>
 
         {/* Title Content */}
-        <div className="absolute inset-0 flex flex-col items-center justify-end pb-8 sm:pb-12 px-4 text-center">
-          <p className="text-amber-400 uppercase tracking-widest text-xs sm:text-sm font-medium mb-2 sm:mb-3">
+        <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 sm:pb-14 px-4 text-center">
+          {/* Parish Type */}
+          <p className="text-amber-400/90 uppercase tracking-[0.2em] text-xs sm:text-sm font-medium mb-3">
             Parafia Rzymskokatolicka
           </p>
-          <h1 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-semibold text-white leading-tight drop-shadow-lg">
+
+          {/* Main Title */}
+          <h1 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-semibold text-white leading-tight drop-shadow-lg max-w-3xl">
             pw. bł. Honorata Koźmińskiego
           </h1>
-          <p className="mt-2 sm:mt-3 text-lg sm:text-xl text-gray-200">
+
+          {/* Location */}
+          <p className="mt-3 text-lg sm:text-xl text-gray-200/90 font-light">
             w Będzinie-Grodźcu
           </p>
-          <div className="mt-4 sm:mt-6">
-            <div className="h-1 w-20 sm:w-24 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 rounded-full" />
+
+          {/* Decorative Line */}
+          <div className="mt-6 flex items-center gap-3">
+            <div className="h-px w-12 sm:w-16 bg-gradient-to-r from-transparent to-amber-500/70" />
+            <div className="w-2 h-2 rounded-full bg-amber-500" />
+            <div className="h-px w-12 sm:w-16 bg-gradient-to-l from-transparent to-amber-500/70" />
           </div>
         </div>
       </section>
