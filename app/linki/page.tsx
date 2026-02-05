@@ -1,5 +1,10 @@
 import Image from "next/image";
 import { ExternalLink } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Parafia Honorata | Linki",
+};
 
 const links = [
   {

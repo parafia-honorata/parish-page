@@ -1,5 +1,10 @@
 import Image from "next/image";
 import { Phone } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Parafia Honorata | O parafii",
+};
 
 export default function AboutParish() {
   return (

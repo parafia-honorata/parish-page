@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Parafia pw. bł. Honorata Koźmińskiego w Będzinie-Grodźcu",
+  title: "Parafia Honorata",
   description:
     "Parafia Rzymskokatolicka pw. błogosławionego Honorata Koźmińskiego w Będzinie-Grodźcu. Msze święte, ogłoszenia, intencje i aktualności parafialne.",
 };
