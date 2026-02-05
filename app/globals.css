@@ -91,6 +91,24 @@
   }
 }
 
+/* Blogger content - preserve original formatting */
+@layer components {
+  .blogger-content {
+    @apply overflow-x-auto;
+  }
+
+  .blogger-content ul,
+  .blogger-content ol {
+    list-style: revert;
+    padding: revert;
+    margin: revert;
+  }
+
+  .blogger-content li {
+    display: list-item;
+  }
+}
+
 /* Responsive tables from Blogger content */
 @layer components {
   .prose {

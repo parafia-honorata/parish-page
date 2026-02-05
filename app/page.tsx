@@ -1,5 +1,6 @@
 import MassesAndOffice from "@/components/MassesAndOffice";
 import HeroGallery from "@/components/HeroGallery";
+import FlashNews from "@/components/FlashNews";
 import Image from "next/image";
 import { MapPin, Mail, Phone, CreditCard } from "lucide-react";
 
@@ -7,6 +8,9 @@ export default function Home() {
   return (
     <main className="flex flex-col gap-8 md:gap-12">
       <HeroGallery />
+
+      {/* Flash News */}
+      <FlashNews />
 
       {/* Masses and Office Schedule */}
       <section className="bg-card rounded-xl border border-border p-6 sm:p-8 shadow-sm">

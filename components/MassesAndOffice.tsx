@@ -30,7 +30,7 @@ export default function MassesAndOffice() {
               <LoaderCircle className="animate-spin h-10 w-10 text-amber-600" />
             </div>
           ) : (
-            <div className="prose prose-stone max-w-none">
+            <div className="blogger-content">
               {blogData}
             </div>
           )}
