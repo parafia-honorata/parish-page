@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Parafia Honorata | Różaniec mężczyzn",
+  description:
+    "Grupa różańcowa mężczyzn w parafii pw. bł. Honorata Koźmińskiego. Zapraszamy mężczyzn do wspólnej modlitwy i budowania braterskiej wspólnoty.",
 };
 
 export default function MenRosary() {

@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Parafia Honorata | Żywy Różaniec",
+  description:
+    "Żywy Różaniec w parafii pw. bł. Honorata Koźmińskiego. Dołącz do wspólnoty modlitewnej i odmawiaj codziennie jedną tajemnicę różańcową w intencjach Kościoła i świata.",
 };
 
 export default function LivingRosary() {

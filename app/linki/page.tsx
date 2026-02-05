@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Parafia Honorata | Linki",
+  description:
+    "Przydatne linki religijne i katolickie. Strona diecezji, Pismo Święte online, portale katolickie i profile społecznościowe parafii.",
 };
 
 const links = [

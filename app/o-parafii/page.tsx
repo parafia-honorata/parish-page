@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Parafia Honorata | O parafii",
+  description:
+    "Historia parafii pw. bł. Honorata Koźmińskiego w Będzinie-Grodźcu. Poznaj naszych księży, dawnych proboszczów i wikariuszy oraz dzieje wspólnoty parafialnej.",
 };
 
 export default function AboutParish() {
