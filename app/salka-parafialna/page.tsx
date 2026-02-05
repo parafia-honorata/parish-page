@@ -38,7 +38,7 @@ export default function ParishRoom() {
                   <LoaderCircle className="animate-spin h-8 w-8 text-amber-600" />
                 </div>
               ) : (
-                <div className="prose prose-stone max-w-none">{blogData}</div>
+                <div className="blogger-content prose max-w-none">{blogData}</div>
               )}
             </div>
           </div>

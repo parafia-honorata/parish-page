@@ -18,7 +18,7 @@ export default function News() {
             <LoaderCircle className="animate-spin h-10 w-10 text-amber-600" />
           </div>
         ) : (
-          <div className="prose prose-stone max-w-none text-muted-foreground leading-relaxed">
+          <div className="blogger-content prose max-w-none text-muted-foreground leading-relaxed">
             {blogData}
           </div>
         )}

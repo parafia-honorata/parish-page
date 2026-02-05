@@ -11,7 +11,7 @@ export default function FlashNews() {
 
   return (
     <div className="bg-gradient-to-r from-amber-800 to-amber-900 rounded-xl p-4 sm:p-5 shadow-md">
-      <div className="text-amber-50 prose prose-sm prose-invert max-w-none [&_a]:text-amber-200 [&_a]:underline [&_a:hover]:text-white">
+      <div className="blogger-content text-amber-50 prose prose-sm prose-invert max-w-none [&_a]:text-amber-200 [&_a]:underline [&_a:hover]:text-white">
         {blogData}
       </div>
     </div>

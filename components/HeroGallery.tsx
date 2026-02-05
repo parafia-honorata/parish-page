@@ -13,13 +13,13 @@ const images = [
 export default function HeroGallery() {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Auto-rotate every 5 seconds
+  // Auto-rotate every 5 seconds, reset timer when image changes
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % images.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [activeIndex]);
 
   return (
     <>

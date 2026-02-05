@@ -4,18 +4,16 @@
 
 @layer base {
   :root {
-    /* Warm cream background */
+    /* Light theme - warm cream */
     --background: 40 33% 96%;
     --foreground: 30 10% 15%;
 
-    /* Warm white cards */
     --card: 40 40% 99%;
     --card-foreground: 30 10% 15%;
 
     --popover: 40 40% 99%;
     --popover-foreground: 30 10% 15%;
 
-    /* Amber primary to match navbar */
     --primary: 30 80% 40%;
     --primary-foreground: 40 40% 99%;
 
@@ -45,40 +43,42 @@
   }
 
   .dark {
-    /* Dark warm theme */
-    --background: 30 15% 10%;
-    --foreground: 40 20% 95%;
+    /* Warm dark theme - softer, more inviting */
+    --background: 25 15% 15%;
+    --foreground: 40 30% 96%;
 
-    --card: 30 15% 13%;
-    --card-foreground: 40 20% 95%;
+    /* Cards - slightly elevated, subtle warmth */
+    --card: 25 14% 18%;
+    --card-foreground: 40 30% 96%;
 
-    --popover: 30 15% 13%;
-    --popover-foreground: 40 20% 95%;
+    --popover: 25 14% 20%;
+    --popover-foreground: 40 30% 96%;
 
-    --primary: 35 85% 55%;
-    --primary-foreground: 30 15% 10%;
+    /* Gold primary - liturgical and elegant */
+    --primary: 38 75% 55%;
+    --primary-foreground: 25 15% 15%;
 
-    --secondary: 30 15% 18%;
-    --secondary-foreground: 40 20% 95%;
+    --secondary: 25 12% 22%;
+    --secondary-foreground: 40 25% 92%;
 
-    --muted: 30 15% 18%;
-    --muted-foreground: 35 15% 60%;
+    --muted: 25 10% 24%;
+    --muted-foreground: 35 20% 65%;
 
-    --accent: 30 15% 18%;
-    --accent-foreground: 40 20% 95%;
+    --accent: 30 15% 22%;
+    --accent-foreground: 40 30% 96%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 65% 45%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 30 15% 20%;
-    --input: 30 15% 20%;
-    --ring: 35 85% 55%;
+    --border: 30 10% 26%;
+    --input: 30 10% 28%;
+    --ring: 38 75% 55%;
 
-    --chart-1: 35 85% 55%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --chart-1: 38 75% 55%;
+    --chart-2: 173 50% 40%;
+    --chart-3: 200 40% 45%;
+    --chart-4: 45 70% 60%;
+    --chart-5: 25 80% 60%;
   }
 }
 
@@ -88,16 +88,51 @@
   }
   body {
     @apply bg-background text-foreground;
+    background-attachment: fixed;
+  }
+  /* Light mode subtle vignette */
+  :root body {
     background-image:
       radial-gradient(ellipse at center, transparent 0%, transparent 60%, hsl(35 25% 90% / 0.5) 100%);
-    background-attachment: fixed;
+  }
+  /* Dark mode subtle vignette for depth */
+  .dark body {
+    background-image:
+      radial-gradient(ellipse at top, hsl(30 20% 18%) 0%, transparent 50%),
+      radial-gradient(ellipse at center, transparent 0%, transparent 40%, hsl(20 12% 10% / 0.3) 100%);
   }
 }
 
-/* Blogger content - preserve original formatting */
+/* Blogger content - preserve formatting but override colors for theme compatibility */
 @layer components {
   .blogger-content {
-    @apply overflow-x-auto;
+    @apply overflow-x-auto text-foreground;
+  }
+
+  /* Force theme colors - override Blogger's inline styles */
+  .blogger-content,
+  .blogger-content * {
+    color: inherit !important;
+    background-color: transparent !important;
+  }
+
+  .blogger-content a {
+    color: hsl(var(--primary)) !important;
+    text-decoration: underline;
+  }
+
+  .blogger-content a:hover {
+    opacity: 0.8;
+  }
+
+  /* Flash news - always white text on amber background */
+  .blogger-content.prose-invert,
+  .blogger-content.prose-invert * {
+    color: white !important;
+  }
+
+  .blogger-content.prose-invert a {
+    color: rgb(253 230 138) !important; /* amber-200 */
   }
 
   .blogger-content ul,
@@ -109,6 +144,16 @@
 
   .blogger-content li {
     display: list-item;
+  }
+
+  /* Prose content - also override inline styles */
+  .prose,
+  .prose * {
+    color: inherit !important;
+  }
+
+  .prose a {
+    color: hsl(var(--primary)) !important;
   }
 }
 

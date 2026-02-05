@@ -1,8 +1,9 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, ChevronDown, ExternalLink } from "lucide-react";
+import { Menu, ChevronDown, ExternalLink, Sun, Moon } from "lucide-react";
 import React from "react";
+import { useTheme } from "next-themes";
 import {
   Sheet,
   SheetTrigger,
@@ -25,6 +26,17 @@ interface NavbarItem {
 }
 
 const Navbar = () => {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
+
   const itemList: NavbarItem[] = [
     {
       title: "Ogłoszenia",
@@ -193,6 +205,22 @@ const Navbar = () => {
           {/* Desktop Navigation - hidden on mobile, shown on lg+ */}
           <div className="hidden lg:flex items-center gap-1 text-base">
             {itemList.map((item) => renderDesktopItem(item))}
+            {/* Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 ml-2 rounded-md text-amber-50 hover:bg-amber-700/50 transition-colors duration-200"
+              aria-label="Przełącz motyw"
+            >
+              {mounted ? (
+                theme === "dark" ? (
+                  <Sun className="w-5 h-5" />
+                ) : (
+                  <Moon className="w-5 h-5" />
+                )
+              ) : (
+                <div className="w-5 h-5" />
+              )}
+            </button>
           </div>
 
           {/* Mobile Menu Button - shown on mobile, hidden on lg+ */}
@@ -210,6 +238,18 @@ const Navbar = () => {
                 </SheetHeader>
                 <div className="flex flex-col text-lg">
                   {itemList.map((item) => renderMobileItem(item))}
+                  {/* Theme Toggle */}
+                  <button
+                    onClick={toggleTheme}
+                    className="flex items-center justify-between py-3 px-3 mt-4 rounded-md text-amber-50 hover:bg-amber-700/50 transition-colors border-t border-amber-700 pt-6"
+                  >
+                    <span>{theme === "dark" ? "Tryb jasny" : "Tryb ciemny"}</span>
+                    {mounted && (theme === "dark" ? (
+                      <Sun className="w-5 h-5" />
+                    ) : (
+                      <Moon className="w-5 h-5" />
+                    ))}
+                  </button>
                 </div>
               </SheetContent>
             </Sheet>
