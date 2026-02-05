@@ -4,13 +4,11 @@ import Image from "next/image";
 import LogoChurch from "../app/LogoChurch.png";
 import {List} from "lucide-react"
 import useMediaQuery from "@/utils/useMediaQuery";
-import React, { useState } from "react";
+import React from "react";
 import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle } from "./ui/sheet"; 
 import {  Select,
   SelectContent,
-  SelectItem,
   SelectTrigger,
-  SelectValue
 } from "./ui/select"
 
 
@@ -23,7 +21,6 @@ interface NavbarItem {
 
 const Navbar = () => {
   const isMobile = useMediaQuery("(max-width: 1024px)");
-  const [isDrawerOpened, setIsDrawerOpened] = useState<boolean>(false);
 
   const itemList: NavbarItem[] = [
     {

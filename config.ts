@@ -1,7 +1,7 @@
 const Config = {
   googleMapLink: "https://maps.app.goo.gl/C2tWrUi6CwxpWd1w9",
-  apiKey: "AIzaSyC2HcEha4-9jTngjDxFMSYJhgVZjilIltE",
-  blogKey: "7955947420807723946",
+  apiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
+  blogKey: process.env.NEXT_PUBLIC_BLOGGER_KEY || "",
   bloggerKeys: {
     newsPostKey: "9080369978767186307",
     intensionsPostKey: "7265091610220609113",

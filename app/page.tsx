@@ -25,7 +25,7 @@ export default function Home() {
         </address>
           <p>Numer konta:</p>
           <p>77 8591 0007 0410 0690 4678 0002</p>
-          <p>Przelewy prosimy składać z dopiskiem "Darowizna".</p>
+          <p>Przelewy prosimy składać z dopiskiem &quot;Darowizna&quot;.</p>
           <p>Za wszelkie datki serdeczne Bóg zapłać!</p>
       </article>
     </main>
