@@ -21,8 +21,8 @@ A modern parish website built with Next.js 15 and React 19.
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/parafia-honorata.git
-cd parafia-honorata
+git clone https://github.com/parafia-honorata/parish-page.git
+cd parish-page
 
 # Install dependencies
 pnpm install
@@ -58,6 +58,20 @@ app/
 ├── salka-parafialna/     # Parish hall
 └── zywy-rozaniec/        # Living rosary
 ```
+
+## Deployment
+
+This project is configured for automatic deployment to GitHub Pages.
+
+### Setup GitHub Pages
+
+1. Go to your repository on GitHub
+2. Navigate to **Settings** > **Pages**
+3. Under "Build and deployment", select **GitHub Actions** as the source
+
+The site will automatically deploy when you push to the `master` branch.
+
+**Live URL:** `https://parafia-honorata.github.io/parish-page`
 
 ## License
 
