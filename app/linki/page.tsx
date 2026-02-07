@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import type { Metadata } from "next";
+import basePath from "@/lib/basePath";
 
 export const metadata: Metadata = {
   title: "Parafia Honorata | Linki",
@@ -78,7 +79,7 @@ export default function Links() {
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 items-center lg:items-start">
           <div className="w-full sm:w-auto flex-shrink-0">
             <Image
-              src="/images/stockpic2.jpg"
+              src={`${basePath}/images/stockpic2.jpg`}
               alt="Przydatne linki"
               width={320}
               height={420}

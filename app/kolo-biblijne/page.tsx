@@ -4,6 +4,7 @@ import Config from "@/config";
 import useBlogData from "@/lib/useBlogData";
 import { LoaderCircle } from "lucide-react";
 import Image from "next/image";
+import basePath from "@/lib/basePath";
 
 export default function BibleGroup() {
   const { blogData, blogLoading } = useBlogData(
@@ -16,7 +17,7 @@ export default function BibleGroup() {
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 items-center lg:items-start">
           <div className="w-full sm:w-auto flex-shrink-0">
             <Image
-              src="/images/biblepic.jpg"
+              src={`${basePath}/images/biblepic.jpg`}
               alt="Pismo Święte"
               width={320}
               height={420}

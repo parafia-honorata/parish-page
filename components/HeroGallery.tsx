@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import basePath from "@/lib/basePath";
 
 const images = [
-  "/images/pic1.jpg",
-  "/images/pic2.jpg",
-  "/images/pic3.jpg",
-  "/images/pic5.jpg",
+  `${basePath}/images/pic1.jpg`,
+  `${basePath}/images/pic2.jpg`,
+  `${basePath}/images/pic3.jpg`,
+  `${basePath}/images/pic5.jpg`,
 ];
 
 export default function HeroGallery() {

@@ -4,6 +4,7 @@ import Config from "@/config";
 import useBlogData from "@/lib/useBlogData";
 import { LoaderCircle } from "lucide-react";
 import Image from "next/image";
+import basePath from "@/lib/basePath";
 
 export default function ParishRoom() {
   const { blogData, blogLoading } = useBlogData(
@@ -16,7 +17,7 @@ export default function ParishRoom() {
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 items-center lg:items-start">
           <div className="w-full sm:w-auto flex-shrink-0">
             <Image
-              src="/images/pic5.jpg"
+              src={`${basePath}/images/pic5.jpg`}
               alt="Salka parafialna"
               width={320}
               height={420}

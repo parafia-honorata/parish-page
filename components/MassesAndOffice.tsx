@@ -4,6 +4,7 @@ import Config from "@/config";
 import useBlogData from "@/lib/useBlogData";
 import { LoaderCircle } from "lucide-react"
 import Image from "next/image";
+import basePath from "@/lib/basePath";
 
 export default function MassesAndOffice() {
   const { blogData, blogLoading } = useBlogData(Config.bloggerKeys.massesAndOffice);
@@ -13,7 +14,7 @@ export default function MassesAndOffice() {
       <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 items-center lg:items-start">
         <div className="w-full sm:w-auto flex-shrink-0">
           <Image
-            src="/images/stockpic1.jpg"
+            src={`${basePath}/images/stockpic1.jpg`}
             alt="Msze święte"
             width={320}
             height={420}

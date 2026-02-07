@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
+import basePath from "@/lib/basePath";
 
 export const metadata: Metadata = {
   title: "Parafia Honorata | Różaniec mężczyzn",
@@ -14,7 +15,7 @@ export default function MenRosary() {
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 items-center lg:items-start">
           <div className="w-full sm:w-auto flex-shrink-0">
             <Image
-              src="/images/rosarypic.jpg"
+              src={`${basePath}/images/rosarypic.jpg`}
               alt="Różaniec"
               width={320}
               height={420}

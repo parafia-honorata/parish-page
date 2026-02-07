@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Phone } from "lucide-react";
 import type { Metadata } from "next";
+import basePath from "@/lib/basePath";
 
 export const metadata: Metadata = {
   title: "Parafia Honorata | O parafii",
@@ -16,7 +17,7 @@ export default function AboutParish() {
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 items-center lg:items-start">
           <div className="w-full sm:w-auto flex-shrink-0">
             <Image
-              src="/images/pic21.jpg"
+              src={`${basePath}/images/pic21.jpg`}
               alt="Kościół parafialny"
               width={320}
               height={420}
@@ -70,7 +71,7 @@ export default function AboutParish() {
         <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 justify-center items-center sm:items-start">
           <div className="flex flex-col items-center text-center max-w-[240px]">
             <Image
-              src="/images/priestpic1.jpg"
+              src={`${basePath}/images/priestpic1.jpg`}
               alt="Ksiądz Proboszcz Marek Zaręba"
               width={200}
               height={280}
@@ -88,7 +89,7 @@ export default function AboutParish() {
           </div>
           <div className="flex flex-col items-center text-center max-w-[240px]">
             <Image
-              src="/images/priestpic2.jpg"
+              src={`${basePath}/images/priestpic2.jpg`}
               alt="Ksiądz Wikariusz Janusz Pieśniewski"
               width={200}
               height={280}
@@ -112,7 +113,7 @@ export default function AboutParish() {
         <div className="flex flex-col lg:flex-row-reverse gap-6 lg:gap-10 items-center lg:items-start">
           <div className="w-full sm:w-auto flex-shrink-0">
             <Image
-              src="/images/stockpic3.jpg"
+              src={`${basePath}/images/stockpic3.jpg`}
               alt="Wnętrze kościoła"
               width={320}
               height={420}

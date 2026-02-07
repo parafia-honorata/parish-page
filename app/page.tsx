@@ -3,6 +3,7 @@ import HeroGallery from "@/components/HeroGallery";
 import FlashNews from "@/components/FlashNews";
 import Image from "next/image";
 import { MapPin, Mail, Phone, CreditCard } from "lucide-react";
+import basePath from "@/lib/basePath";
 
 export default function Home() {
   return (
@@ -22,7 +23,7 @@ export default function Home() {
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 items-center lg:items-start">
           <div className="w-full sm:w-auto flex-shrink-0">
             <Image
-              src="/images/pic5.jpg"
+              src={`${basePath}/images/pic5.jpg`}
               alt="Kościół parafialny"
               width={320}
               height={420}
@@ -60,7 +61,7 @@ export default function Home() {
         <div className="flex flex-col lg:flex-row-reverse gap-6 lg:gap-10 items-center lg:items-start">
           <div className="w-full sm:w-auto flex-shrink-0">
             <Image
-              src="/images/honorat.jpg"
+              src={`${basePath}/images/honorat.jpg`}
               alt="Błogosławiony Honorat Koźmiński"
               width={320}
               height={420}

@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, ChevronDown, ExternalLink, Sun, Moon } from "lucide-react";
+import basePath from "@/lib/basePath";
 import React from "react";
 import { useTheme } from "next-themes";
 import {
@@ -193,7 +194,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link href="/" className="flex-shrink-0 hover:opacity-90 transition-opacity">
             <Image
-              src="/images/LogoChurchLong.png"
+              src={`${basePath}/images/LogoChurchLong.png`}
               width={200}
               height={50}
               alt="Parafia bł. Honorata Koźmińskiego"
