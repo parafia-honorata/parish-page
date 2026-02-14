@@ -29,6 +29,7 @@ interface NavbarItem {
 const Navbar = () => {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
+  const [sheetOpen, setSheetOpen] = React.useState(false);
 
   React.useEffect(() => {
     setMounted(true);
@@ -151,6 +152,7 @@ const Navbar = () => {
               <Link
                 key={sublink.link}
                 href={sublink.link}
+                onClick={() => setSheetOpen(false)}
                 className="py-2 px-3 rounded-md text-amber-50 hover:bg-amber-700/50 transition-colors"
               >
                 {sublink.title}
@@ -168,6 +170,7 @@ const Navbar = () => {
           href={navbarItem.link}
           target="_blank"
           rel="noreferrer"
+          onClick={() => setSheetOpen(false)}
           className="flex items-center justify-between py-3 px-3 rounded-md text-amber-50 hover:bg-amber-700/50 transition-colors"
         >
           {navbarItem.title}
@@ -180,6 +183,7 @@ const Navbar = () => {
       <Link
         key={navbarItem.link}
         href={navbarItem.link}
+        onClick={() => setSheetOpen(false)}
         className="py-3 px-3 rounded-md text-amber-50 hover:bg-amber-700/50 transition-colors"
       >
         {navbarItem.title}
@@ -226,7 +230,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button - shown on mobile, hidden on lg+ */}
           <div className="lg:hidden">
-            <Sheet>
+            <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
               <SheetTrigger className="p-2 rounded-md text-amber-50 hover:bg-amber-700/50 transition-colors">
                 <Menu className="w-8 h-8" />
                 <span className="sr-only">Otwórz menu</span>

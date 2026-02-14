@@ -1,9 +1,7 @@
 import MassesAndOffice from "@/components/MassesAndOffice";
 import HeroGallery from "@/components/HeroGallery";
 import FlashNews from "@/components/FlashNews";
-import Image from "next/image";
 import { MapPin, Mail, Phone, CreditCard } from "lucide-react";
-import basePath from "@/lib/basePath";
 
 export default function Home() {
   return (
@@ -16,88 +14,6 @@ export default function Home() {
       {/* Masses and Office Schedule */}
       <section className="bg-card rounded-xl border border-border p-6 sm:p-8 shadow-sm">
         <MassesAndOffice />
-      </section>
-
-      {/* About the Parish */}
-      <section className="bg-card rounded-xl border border-border p-6 sm:p-8 shadow-sm">
-        <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 items-center lg:items-start">
-          <div className="w-full sm:w-auto flex-shrink-0">
-            <Image
-              src={`${basePath}/images/pic5.jpg`}
-              alt="Kościół parafialny"
-              width={320}
-              height={420}
-              className="rounded-lg object-cover w-full sm:w-[320px] h-auto shadow-md"
-            />
-          </div>
-          <div className="flex-1">
-            <h2 className="text-2xl sm:text-3xl font-semibold text-foreground mb-4">
-              O parafii
-            </h2>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
-              <p>
-                Parafia pw. błogosławionego Honorata Koźmińskiego została powołana
-                stosunkowo niedawno i jest najmłodszą parafią w Będzinie-Grodźcu.
-                Założono ją w celu posługi duszpasterskiej dla mieszkańców
-                kopalnianego osiedla przy ulicy Konopnickiej.
-              </p>
-              <p>
-                Choć ustanowienia parafii dokonał biskup częstochowski Stanisław
-                Nowak, obecnie należy ona do Diecezji Sosnowieckiej. Biskup Adam
-                Śmigielski dokonał jej uroczystej konsekracji 15 października 2000 r.
-              </p>
-              <p>
-                W parafii działa Koło Żywego Różańca. W każdą środę zmawiana jest
-                Nowenna do Matki Bożej Nieustającej pomocy, a w piątki Koronka do
-                Bożego Miłosierdzia.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Blessed Honorat */}
-      <section className="bg-card rounded-xl border border-border p-6 sm:p-8 shadow-sm">
-        <div className="flex flex-col lg:flex-row-reverse gap-6 lg:gap-10 items-center lg:items-start">
-          <div className="w-full sm:w-auto flex-shrink-0">
-            <Image
-              src={`${basePath}/images/honorat.jpg`}
-              alt="Błogosławiony Honorat Koźmiński"
-              width={320}
-              height={420}
-              className="rounded-lg object-cover w-full sm:w-[320px] h-auto shadow-md"
-            />
-          </div>
-          <div className="flex-1">
-            <h2 className="text-2xl sm:text-3xl font-semibold text-foreground mb-4">
-              Błogosławiony Honorat Koźmiński
-            </h2>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
-              <p>
-                Życie błogosławionego Honorata pokazuje, że Pan Bóg ma dla każdego z
-                nas plan, oraz że drogę do świętości poprzedza czasem zwątpienie i
-                kryzys wiary. Buntownik z pobożnej inteligenckiej rodziny stał się
-                jedną z najważniejszych postaci życia religijnego polaków pod zaborami.
-              </p>
-              <p>
-                W młodości, idąc za przykładem ojca, uczył się na architekta. Wstąpił
-                do płockiego gimnazjum. Zostaje doświadczony na wiele sposobów,
-                młodzieńczym niedowiarstwem, przedwczesną śmiercią ojca, a wreszcie
-                wtrąceniem do carskiego więzienia. Z warszawskiej Cytadeli wyszedł
-                odmieniony. Po przeżytym nawróceniu stał się spokojny i pogodzony z
-                Bogiem. Niedługo później rozpoczął swoje życie zakonne jako Kapucyn.
-              </p>
-              <p>
-                W trudnych warunkach zaborów, nieustannie podejrzewany przez władzę
-                rosyjskie o działalność wywrotową i konspirację, założył 23
-                zgromadzenia zakonne i 26 stowarzyszeń tercjarskich. Jednocześnie też
-                promował ukryte zgromadzenia zakonne, jako formę oporu wobec rosyjskiej
-                opresji. Był uznanym spowiednikiem, tytanem pracy i niestrudzonym
-                organizatorem. Zmarł w 1916 r. w opinii świętości.
-              </p>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* Contact and Location */}

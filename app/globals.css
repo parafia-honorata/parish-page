@@ -172,6 +172,11 @@
     @apply border border-border px-2 py-2 text-left align-top;
   }
 
+  .dark .prose table th,
+  .dark .prose table td {
+    border-color: rgba(255, 255, 255, 0.6) !important;
+  }
+
   .prose table th {
     @apply bg-muted font-semibold text-foreground;
   }
