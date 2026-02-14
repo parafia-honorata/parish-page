@@ -2,6 +2,13 @@ import MassesAndOffice from "@/components/MassesAndOffice";
 import HeroGallery from "@/components/HeroGallery";
 import FlashNews from "@/components/FlashNews";
 import { MapPin, Mail, Phone, CreditCard } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Parafia bł. Honorata Koźmińskiego w Będzinie",
+  description:
+    "Oficjalna strona parafii pw. bł. Honorata Koźmińskiego w Będzinie-Grodźcu. Msze święte, ogłoszenia, intencje mszalne i informacje dla parafian.",
+};
 
 export default function Home() {
   return (
