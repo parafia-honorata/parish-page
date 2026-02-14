@@ -39,8 +39,7 @@ jobs:
       - name: Build
         run: pnpm build
         env:
-          NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: AIzaSyC2HcEha4-9jTngjDxFMSYJhgVZjilIltE
-          NEXT_PUBLIC_BLOGGER_KEY: "7955947420807723946"
+          NEXT_PUBLIC_BLOGGER_API_KEY: ${{ secrets.BLOGGER_API_KEY }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
