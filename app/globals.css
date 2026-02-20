@@ -107,6 +107,7 @@
 @layer components {
   .blogger-content {
     @apply overflow-x-auto text-foreground;
+    padding-left: 1px; /* Prevent left-side clipping from overflow */
   }
 
   /* Force theme colors - override Blogger's inline styles */
@@ -144,6 +145,42 @@
 
   .blogger-content li {
     display: list-item;
+  }
+
+  /* Tables in blogger content */
+  .blogger-content table {
+    @apply w-full border-collapse text-sm my-4;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .blogger-content table th,
+  .blogger-content table td {
+    @apply border border-border px-3 py-2 text-left align-top;
+  }
+
+  .dark .blogger-content table th,
+  .dark .blogger-content table td {
+    border-color: rgba(255, 255, 255, 0.6) !important;
+  }
+
+  .blogger-content table th {
+    @apply bg-muted font-semibold text-foreground;
+  }
+
+  .blogger-content table tr:nth-child(even) {
+    @apply bg-muted/30;
+  }
+
+  @media (max-width: 640px) {
+    .blogger-content table {
+      @apply text-xs;
+    }
+
+    .blogger-content table th,
+    .blogger-content table td {
+      @apply px-2 py-1.5;
+    }
   }
 
   /* Prose content - also override inline styles */

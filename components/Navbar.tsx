@@ -27,7 +27,7 @@ interface NavbarItem {
 }
 
 const Navbar = () => {
-  const { theme, setTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
   const [sheetOpen, setSheetOpen] = React.useState(false);
 
@@ -36,7 +36,7 @@ const Navbar = () => {
   }, []);
 
   const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
+    setTheme(resolvedTheme === "dark" ? "light" : "dark");
   };
 
   const itemList: NavbarItem[] = [
@@ -217,7 +217,7 @@ const Navbar = () => {
               aria-label="Przełącz motyw"
             >
               {mounted ? (
-                theme === "dark" ? (
+                resolvedTheme === "dark" ? (
                   <Sun className="w-5 h-5" />
                 ) : (
                   <Moon className="w-5 h-5" />
@@ -248,8 +248,8 @@ const Navbar = () => {
                     onClick={toggleTheme}
                     className="flex items-center justify-between py-3 px-3 mt-4 rounded-md text-amber-50 hover:bg-amber-700/50 transition-colors border-t border-amber-700 pt-6"
                   >
-                    <span>{theme === "dark" ? "Tryb jasny" : "Tryb ciemny"}</span>
-                    {mounted && (theme === "dark" ? (
+                    <span>{resolvedTheme === "dark" ? "Tryb jasny" : "Tryb ciemny"}</span>
+                    {mounted && (resolvedTheme === "dark" ? (
                       <Sun className="w-5 h-5" />
                     ) : (
                       <Moon className="w-5 h-5" />
